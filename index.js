@@ -27,7 +27,7 @@ app.post("/product", async (request, response) => {
 });
 
 /**
- * Lista os produtos
+ * Retorna a lista de produtos
  */
 app.get("/products", async (request, response) => {
   try {
