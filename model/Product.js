@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import databaseConnection from "../database/database-connection";
+import databaseConnection from "../database/database-connection.js";
 
 const Product = databaseConnection.define("product", {
   id: {
@@ -7,11 +7,11 @@ const Product = databaseConnection.define("product", {
     primaryKey: true,
     autoIncrement: true,
   },
-  price: {
-    type: DataTypes.FLOAT,
+  name: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  name: {
+  brand: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -19,3 +19,5 @@ const Product = databaseConnection.define("product", {
     type: DataTypes.STRING,
   },
 });
+
+export default Product;
