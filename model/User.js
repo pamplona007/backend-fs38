@@ -13,6 +13,13 @@ const User = databaseConnection.define("user", {
   birthdate: {
     type: DataTypes.DATEONLY,
   },
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+  },
+  password: {
+    type: DataTypes.STRING,
+  }
 });
 
 export default User;
