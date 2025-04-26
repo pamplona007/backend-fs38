@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const authRouter = express.Router();
-const secretKey =
+export const secretKey =
   "432rewlfds@#$rdjshdkjdshfkjdsfs#$%%$xcmvnfldsjfo#@$#%#$RFDFD*8tgdfvcjdkjkdw";
 
 authRouter.post("/login", async (request, response) => {
@@ -18,6 +18,7 @@ authRouter.post("/login", async (request, response) => {
             email
         }
     });
+
     if (!user) {
         return response.status(400).json({message:"Invalid email or password"});
     }
@@ -55,7 +56,7 @@ authRouter.post("/register", async (request, response) => {
      * Contains uppercase and lowercase characters
      * Contains number
      */
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/gm
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,255}$/gm
     const passwordIsValid = passwordRegex.test(password);
 
     if (!passwordIsValid) {
